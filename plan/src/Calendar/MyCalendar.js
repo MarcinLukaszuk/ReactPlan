@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
+import PropTypes from 'prop-types';
 import DayEvent from './DayEvent.js';
 BigCalendar.momentLocalizer(moment);
 
@@ -90,4 +90,14 @@ class MyCalendar extends Component {
     return { style: style };
   };
 }
+
+MyCalendar.propTypes = {
+  events: PropTypes.array,
+  filteredName: PropTypes.string,
+  defaultDate: PropTypes.instanceOf(Date),
+  updateView: PropTypes.func,
+  updateDate: PropTypes.func
+};
+
+
 export default MyCalendar;
